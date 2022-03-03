@@ -2,10 +2,12 @@ package com.nico.myapplicationocr.appraspb.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nico.myapplicationocr.appraspb.R;
 
@@ -15,6 +17,8 @@ public class PilotageActivity extends AppCompatActivity {
     private static EditText mEditTextCommande;
     private static Button mButtonEnvoyer;
     private static TextView mTextViewListeCommandes;
+
+    private static String addrMAC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +30,9 @@ public class PilotageActivity extends AppCompatActivity {
         mButtonEnvoyer = findViewById(R.id.buttonSendCommande);
         mTextViewListeCommandes = findViewById(R.id.textListeCommandes);
 
+        Intent newint = getIntent();
+        addrMAC = newint.getStringExtra("AddrMAC");
+        Toast.makeText(getApplicationContext(), addrMAC, Toast.LENGTH_LONG).show();
 
     }
 }

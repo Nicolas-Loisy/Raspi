@@ -26,12 +26,24 @@
         android:gravity="center"
         android:text="Cette application nécessite le bluetooth de votre smartphone. Vérifier que le bluetooth de votre appareil est allumé et connecté à votre Raspberry Pi (3/3B+/4/0W). " />
 
+
     <Button
         android:id="@+id/main_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="16dp"
-        android:text="Suivant" />
+        android:text="Sélectionnez votre Raspberry Pi" />
+
+    <ListView
+        android:id="@+id/ListViewAppareilsBT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="4dp" ></ListView>
+
+
+
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>
