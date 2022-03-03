@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controller.PilotageActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textEcranControle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Contrôle du Raspberry"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edittextCommande"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Commande" />
+
+    <Button
+        android:id="@+id/buttonSendCommande"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="16dp"
+        android:text="Envoyer" />
+
+    <TextView
+        android:id="@+id/textListeCommandes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:padding="8dp"
+        android:gravity="left"
+        android:text="Liste des commandes : \n      - led1 = allumer la led \n      - led0 = éteindre la led \n" />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
