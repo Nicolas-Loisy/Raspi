@@ -70,7 +70,7 @@ public class PilotageActivity extends AppCompatActivity {
 
         boolean connected = true;
         try{
-            mmSocket = dev.createRfcommSocketToServiceRecord(MY_UUID); //Creates a socket to handle the outgoing connection
+            mmSocket = dev.createRfcommSocketToServiceRecord(MY_UUID);
             mmSocket.connect();
             //Toast.makeText(getApplicationContext(),"La connexion est un succès!!", Toast.LENGTH_LONG).show();
         }
@@ -133,10 +133,5 @@ public class PilotageActivity extends AppCompatActivity {
         //myThreadConnectBTdevice = new ThreadConnectBTdevice(dev);
         //myThreadConnectBTdevice.start();
     }
-
-
-
-
-
 
 }
