@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/nicol/AndroidStudioProjects/AppRaspb - Copie/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/nicol/AndroidStudioProjects/AppRaspb - Copie/app/src/main/res/layout/activity_pilotage.xml" value="0.2828125" />
+        <entry key="..\:/Users/nicol/AndroidStudioProjects/AppRaspb - Copie/app/src/main/res/layout/device_adapter_view.xml" value="0.13055555555555556" />
+        <entry key="..\:/Users/nicol/AndroidStudioProjects/AppRaspb/app/src/main/res/layout/activity_comms.xml" value="0.1" />
         <entry key="..\:/Users/nicol/AndroidStudioProjects/AppRaspb/app/src/main/res/layout/activity_main.xml" value="0.2368659420289855" />
         <entry key="..\:/Users/nicol/AndroidStudioProjects/AppRaspbV1/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/nicol/AndroidStudioProjects/AppRaspbV1/app/src/main/res/layout/activity_pilotage.xml" value="0.36666666666666664" />

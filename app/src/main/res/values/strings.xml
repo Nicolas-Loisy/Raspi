@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AppRaspb</string>
+    <string name="cette_application_n_cessite_le_bluetooth_de_votre_smartphone_v_rifier_que_le_bluetooth_de_votre_appareil_est_allum_et_connect_votre_raspberry_pi_3_3b_4_0w">Cette application nécessite le bluetooth de votre smartphone. Vérifier que le bluetooth de votre appareil est allumé et connecté à votre Raspberry Pi (3/3B+/4/0W).</string>
+    <string name="s_lectionnez_votre_raspberry_pi">Sélectionnez votre Raspberry Pi</string>
 </resources>
