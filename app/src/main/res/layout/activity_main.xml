@@ -11,7 +11,7 @@
         android:id="@+id/textHello"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="8dp"
         android:gravity="center"
         android:padding="8dp"
         android:text="Hello World!"
@@ -24,16 +24,16 @@
         android:layout_margin="16dp"
         android:padding="8dp"
         android:gravity="center"
-        android:text="Cette application nécessite le bluetooth de votre smartphone. Vérifier que le bluetooth de votre appareil est allumé et connecté à votre Raspberry Pi (3/3B+/4/0W). " />
+        android:text="@string/cette_application_n_cessite_le_bluetooth_de_votre_smartphone_v_rifier_que_le_bluetooth_de_votre_appareil_est_allum_et_connect_votre_raspberry_pi_3_3b_4_0w" />
 
-
+    <!-- Partie connection Raspberry -->
     <Button
         android:id="@+id/main_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="16dp"
-        android:text="Sélectionnez votre Raspberry Pi" />
+        android:text="Connecter votre Raspberry Pi" />
 
     <ListView
         android:id="@+id/ListViewAppareilsBT"
@@ -41,9 +41,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="4dp" ></ListView>
-
-
-
-
 
 </androidx.appcompat.widget.LinearLayoutCompat>

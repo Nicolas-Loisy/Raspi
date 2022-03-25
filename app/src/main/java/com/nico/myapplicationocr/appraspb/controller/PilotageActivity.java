@@ -147,9 +147,6 @@ public class PilotageActivity extends AppCompatActivity {
         //new ConnectBT().execute();
 
 
-        //myUUID = UUID.fromString(UUID_STRING_WELL_KNOWN_SPP);
-        //myThreadConnectBTdevice = new ThreadConnectBTdevice(dev);
-        //myThreadConnectBTdevice.start();
     }
 
 }
