@@ -17,6 +17,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +37,10 @@ public class PilotageActivity extends AppCompatActivity {
     private static TextView mTextViewReponseRaspb;
     private static Button mButtonEnvoyer;
     private static TextView mTextViewListeCommandes;
+    private static ImageView mImageLed;
+    private static Switch mSwitchLed;
+    private static SeekBar mSeekBarMoteur;
+
 
     private static String addrMAC;
     BluetoothAdapter myBluetooth;
@@ -59,6 +66,10 @@ public class PilotageActivity extends AppCompatActivity {
         mTextViewReponseRaspb = findViewById(R.id.reponseRaspb2);
         mButtonEnvoyer = findViewById(R.id.buttonSendCommande);
         mTextViewListeCommandes = findViewById(R.id.textListeCommandes);
+        mImageLed = findViewById(R.id.imageViewLed);
+        mSwitchLed = findViewById(R.id.switchLed);
+        mSeekBarMoteur = findViewById(R.id.seekBarMoteur);
+
 
         myBluetooth = BluetoothAdapter.getDefaultAdapter();
 
@@ -86,7 +97,36 @@ public class PilotageActivity extends AppCompatActivity {
             }
         });
 
+        mSwitchLed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean checked = ((Switch) view).isChecked();
+                if (checked){
+                    connexionThread.sendCommandeLed("led1", mImageLed);
+                }else{
+                    connexionThread.sendCommandeLed("led0", mImageLed);
+                }
+            }
+        });
 
+        mSeekBarMoteur.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
+            int valeurMoteur = 10;
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                valeurMoteur = progress;
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                String commande = "moteur "+valeurMoteur;
+                connexionThread.sendCommandeMoteur(commande);
+            }
+
+        });
 
 
 

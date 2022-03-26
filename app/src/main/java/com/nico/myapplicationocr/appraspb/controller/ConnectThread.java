@@ -5,7 +5,11 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.util.Log;
+import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
+
+import com.nico.myapplicationocr.appraspb.R;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -87,6 +91,8 @@ public class ConnectThread extends Thread {
         }
     }
 
+
+    // ligne commande
     public void sendCommande(String commande, TextView reponse){
         try {
             outputStream.write(commande.getBytes());
@@ -96,13 +102,56 @@ public class ConnectThread extends Thread {
 
         receiveReponse(reponse);
     }
-
     public void receiveReponse(TextView reponse){
         byte[] buffer = new byte[512];
         try {
             int numBytes = inputStream.read(buffer);
             String message = new String(buffer, 0, numBytes);
             reponse.setText(message);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Button Led
+    public void sendCommandeLed(String commande, ImageView etatLed){
+        try {
+            outputStream.write(commande.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        receiveReponseEtatLed(etatLed);
+    }
+    public void receiveReponseEtatLed(ImageView etatLed){
+        byte[] buffer = new byte[512];
+        try {
+            int numBytes = inputStream.read(buffer);
+            String message = new String(buffer, 0, numBytes);
+            if (message.equalsIgnoreCase("led on")){
+                etatLed.setImageResource(R.drawable.led1onv);
+            }else{
+                etatLed.setImageResource(R.drawable.led1off2v);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // SeekBar Moteur
+    public void sendCommandeMoteur(String commande){
+        try {
+            outputStream.write(commande.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        receiveReponseEtatMoteur();
+    }
+    public void receiveReponseEtatMoteur(){
+        byte[] buffer = new byte[512];
+        try {
+            int numBytes = inputStream.read(buffer);
+            String message = new String(buffer, 0, numBytes);
         } catch (IOException e) {
             e.printStackTrace();
         }

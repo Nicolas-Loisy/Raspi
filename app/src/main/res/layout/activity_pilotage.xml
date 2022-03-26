@@ -14,7 +14,7 @@
         android:layout_margin="16dp"
         android:gravity="center"
         android:padding="8dp"
-        android:text="Contrôle du Raspberry"
+        android:text="@string/contr_le_du_raspberry"
         android:textSize="20sp" />
 
     <EditText
@@ -23,7 +23,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:hint="Commande" />
+        android:autofillHints=""
+        android:hint="@string/commande"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textColorHint="#757575" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -34,8 +38,8 @@
             android:id="@+id/reponseRaspb"
             android:layout_width="97dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20px"
-            android:text="Réponse Pi : "
+            android:layout_marginEnd="20px"
+            android:text="@string/r_ponse_pi"
             android:translationX="45px" />
 
         <TextView
@@ -50,17 +54,77 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="16dp"
-        android:text="Envoyer" />
+        android:layout_marginTop="10px"
+        android:text="@string/envoyer" />
 
     <TextView
         android:id="@+id/textListeCommandes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_marginStart="30px"
         android:gravity="left"
         android:padding="8dp"
-        android:text="Liste des commandes : \n      - led1 = allumer la led \n      - led0 = éteindre la led \n" />
+        android:text="@string/liste_des_commandes_n_led1_allumer_la_led_n_led0_teindre_la_led_n" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30px"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageViewLed"
+                android:layout_width="44dp"
+                android:layout_height="81dp"
+                android:contentDescription="etatLed"
+                app:srcCompat="@drawable/led1off2v" />
+
+            <Switch
+                android:id="@+id/switchLed"
+                android:layout_width="207dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50px"
+                android:layout_marginEnd="200px"
+                android:layout_weight="1"
+                android:minHeight="48dp"
+                android:text="@string/led_on_off"
+                android:textAlignment="textStart"
+                android:textSize="20sp"
+                android:translationY="40px" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="15px"
+            android:layout_marginRight="30px"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/moteur2" />
+
+            <SeekBar
+                android:id="@+id/seekBarMoteur"
+                android:layout_width="800px"
+                android:layout_height="wrap_content"
+                android:max="170"
+                android:translationY="40px" />
+
+        </LinearLayout>
+    </LinearLayout>
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
