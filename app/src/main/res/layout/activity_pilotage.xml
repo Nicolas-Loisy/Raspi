@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.PilotageActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".controller.PilotageActivity">
 
     <TextView
         android:id="@+id/textEcranControle"
@@ -25,6 +25,26 @@
         android:layout_marginEnd="16dp"
         android:hint="Commande" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/reponseRaspb"
+            android:layout_width="97dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20px"
+            android:text="Réponse Pi : "
+            android:translationX="45px" />
+
+        <TextView
+            android:id="@+id/reponseRaspb2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+    </LinearLayout>
+
     <Button
         android:id="@+id/buttonSendCommande"
         android:layout_width="wrap_content"
@@ -38,8 +58,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:padding="8dp"
         android:gravity="left"
+        android:padding="8dp"
         android:text="Liste des commandes : \n      - led1 = allumer la led \n      - led0 = éteindre la led \n" />
 
 

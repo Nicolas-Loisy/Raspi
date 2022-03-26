@@ -31,6 +31,7 @@ public class PilotageActivity extends AppCompatActivity {
 
     private static TextView mTextViewTitleControle;
     private static EditText mEditTextCommande;
+    private static TextView mTextViewReponseRaspb;
     private static Button mButtonEnvoyer;
     private static TextView mTextViewListeCommandes;
 
@@ -55,6 +56,7 @@ public class PilotageActivity extends AppCompatActivity {
 
         mTextViewTitleControle = findViewById(R.id.textEcranControle);
         mEditTextCommande = findViewById(R.id.edittextCommande);
+        mTextViewReponseRaspb = findViewById(R.id.reponseRaspb2);
         mButtonEnvoyer = findViewById(R.id.buttonSendCommande);
         mTextViewListeCommandes = findViewById(R.id.textListeCommandes);
 
@@ -71,6 +73,24 @@ public class PilotageActivity extends AppCompatActivity {
 
         ConnectThread connexionThread = new ConnectThread(dev, myBluetooth);
         connexionThread.start();
+
+
+
+
+
+
+        mButtonEnvoyer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                connexionThread.sendCommande(mEditTextCommande.getText().toString(), mTextViewReponseRaspb);
+            }
+        });
+
+
+
+
+
+
         //connexionThread.run();
 
 

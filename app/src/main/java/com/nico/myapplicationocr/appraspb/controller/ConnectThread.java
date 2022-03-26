@@ -5,8 +5,11 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.util.Log;
+import android.widget.TextView;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.UUID;
 
 public class ConnectThread extends Thread {
@@ -18,6 +21,9 @@ public class ConnectThread extends Thread {
     //private static final UUID MY_UUID = UUID.fromString("e0cbf06c-cd8b-4647-bb8a-263b43f0f974");
     private static final UUID MY_UUID = UUID.fromString("94f39d29-7d6d-437d-973b-fba39e49d4ee");
     private final BluetoothAdapter bluetoothAdapter;
+
+    private OutputStream outputStream; //envoyer
+    private InputStream inputStream; //reception
 
     @SuppressLint("MissingPermission")
     public ConnectThread(BluetoothDevice device, BluetoothAdapter btAdapter) {
@@ -58,6 +64,14 @@ public class ConnectThread extends Thread {
             return;
         }
 
+
+        try {
+            outputStream = mmSocket.getOutputStream();
+            inputStream = mmSocket.getInputStream();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         // The connection attempt succeeded. Perform work associated with
         // the connection in a separate thread.
         Log.e(TAG, "Connecte");
@@ -72,4 +86,26 @@ public class ConnectThread extends Thread {
             Log.e(TAG, "Could not close the client socket", e);
         }
     }
+
+    public void sendCommande(String commande, TextView reponse){
+        try {
+            outputStream.write(commande.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        receiveReponse(reponse);
+    }
+
+    public void receiveReponse(TextView reponse){
+        byte[] buffer = new byte[512];
+        try {
+            int numBytes = inputStream.read(buffer);
+            String message = new String(buffer, 0, numBytes);
+            reponse.setText(message);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
