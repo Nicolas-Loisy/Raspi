@@ -14,17 +14,17 @@
         android:layout_margin="8dp"
         android:gravity="center"
         android:padding="8dp"
-        android:text="Hello World!"
-        android:textSize="20sp" />
+        android:text="Remote Pi"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/textNotice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:padding="8dp"
         android:gravity="center"
-        android:text="@string/cette_application_n_cessite_le_bluetooth_de_votre_smartphone_v_rifier_que_le_bluetooth_de_votre_appareil_est_allum_et_connect_votre_raspberry_pi_3_3b_4_0w" />
+        android:padding="8dp"
+        android:text="@string/cette_application_vous_permet_de_piloter_par_bluetooth_un_raspberry_pi_r_alis_par_nicolas_loisy_dans_le_cadre_du_projet_tutor_du_dut_2e_ann_e" />
 
     <!-- Partie connection Raspberry -->
     <Button
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="16dp"
-        android:text="Connecter votre Raspberry Pi" />
+        android:text="@string/connecter_votre_raspberry_pi" />
 
     <ListView
         android:id="@+id/ListViewAppareilsBT"

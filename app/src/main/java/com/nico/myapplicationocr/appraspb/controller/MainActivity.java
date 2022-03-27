@@ -1,20 +1,12 @@
 package com.nico.myapplicationocr.appraspb.controller;
 
-import static android.bluetooth.BluetoothAdapter.*;
+import static android.bluetooth.BluetoothAdapter.ACTION_REQUEST_ENABLE;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,6 +14,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.nico.myapplicationocr.appraspb.R;
 
@@ -70,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
             mButtonHome.setEnabled(true);
         }
 
-
         //liste historique device appaire
         mButtonHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,26 +72,9 @@ public class MainActivity extends AppCompatActivity {
                     Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                     startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
                 } else {
-                    /*
-                    if (mBluetoothAdapter.isDiscovering()) {
-                        mBluetoothAdapter.cancelDiscovery();
-                    }
-                    boolean sd = mBluetoothAdapter.startDiscovery();
-                    if (sd){
-                        Toast.makeText(MainActivity.this, "true", Toast.LENGTH_LONG).show();
-                    }else{
-                        Toast.makeText(MainActivity.this, "false", Toast.LENGTH_LONG).show();
-                    }*/
-                    //mBluetoothAdapter.cancelDiscovery();
-
                     listeAppareils();
-
-
-                    //Intent pilotageActivityIntent = new Intent(MainActivity.this, PilotageActivity.class);
-                    //startActivity(pilotageActivityIntent);
                 }
             }
-
 
             //historique appareils appaire
             private void listeAppareils() {
@@ -126,12 +102,9 @@ public class MainActivity extends AppCompatActivity {
                     String addrMac = info.substring(info.length() - 17); //Nom de l'appareil + addr MAC -> on recupere juste l'addr MAC de 17 caracteres
 
                     BluetoothDevice dev = mBluetoothAdapter.getRemoteDevice(addrMac);
-                    //Toast.makeText(getApplicationContext(), dev.getName(), Toast.LENGTH_LONG).show();
-                    //Toast.makeText(getApplicationContext(), addrMac, Toast.LENGTH_LONG).show();
 
                     Intent pilotageActivityIntent = new Intent(MainActivity.this, PilotageActivity.class); //creation new intent
                     pilotageActivityIntent.putExtra("AddrMAC", addrMac); //ajout addr MAC
-                    //pilotageActivityIntent.putExtra("device", dev);
 
                     startActivity(pilotageActivityIntent);
                 }

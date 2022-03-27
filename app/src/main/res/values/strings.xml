@@ -8,4 +8,7 @@
     <string name="liste_des_commandes_n_led1_allumer_la_led_n_led0_teindre_la_led_n">Liste des commandes : \n - led1 = allumer la led \n - led0 = éteindre la led \n</string>
     <string name="envoyer">Envoyer</string>
     <string name="r_ponse_pi">Réponse Pi :</string>
+    <string name="cette_application_vous_permet_de_piloter_par_bluetooth_un_pi_r_alis_par_nicolas_loisy_dans_le_cadre_du_projet_tutor_du_dut_2e_ann_e">Cette application vous permet de piloter par Bluetooth un Pi. Réalisé par Nicolas Loisy dans le cadre du projet tutoré du DUT 2e année.</string>
+    <string name="connecter_votre_raspberry_pi">Connecter votre Raspberry Pi</string>
+    <string name="cette_application_vous_permet_de_piloter_par_bluetooth_un_raspberry_pi_r_alis_par_nicolas_loisy_dans_le_cadre_du_projet_tutor_du_dut_2e_ann_e">Cette application vous permet de piloter par Bluetooth un Raspberry Pi. Réalisé par Nicolas Loisy dans le cadre du projet tutoré du DUT 2e année.</string>
 </resources>
